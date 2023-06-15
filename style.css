@@ -1,0 +1,17 @@
+body {
+    background: #090e24;
+    color: #f4f4f4;
+    height: 100%;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form input {
+    margin: 10px;
+    width: 70%;
+}

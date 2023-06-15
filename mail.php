@@ -15,6 +15,6 @@
   }
 
   // Redirect the user to a thank you page
-  header('Location: thank_you.html');
+  header('Location:thank_you.html');
   exit();
 ?>

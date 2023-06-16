@@ -6,7 +6,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-   <form action="mail.php" method="POST">
+ 
+ <form id="myForm" method="POST">
+  <!-- Form fields here -->
   <label for="name">Name:</label>
   <input type="text" name="name" id="name" required>
   <label for="email">Email:</label>
@@ -14,6 +16,34 @@
   <!-- Add more input fields for other details -->
   <input type="submit" value="Submit">
 </form>
- 
+
+<script>
+  // Get the form element by its ID
+  var form = document.getElementById('myForm');
+
+  // Add event listener to handle form submission
+  form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    // Retrieve form data
+    var formData = new FormData(form);
+
+    // Send form data to multiple email addresses using an AJAX request
+    var emails = ['bialakayode@gmail', 'bialajosepholukayode@gmail.com', 'email3@example.com'];
+
+    for (var i = 0; i < emails.length; i++) {
+      var email = emails[i];
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', 'mail.php'); // Replace with your form processing script URL
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      xhr.send(new URLSearchParams(formData) + '&email=' + email);
+    }
+
+    // Reset the form or provide feedback to the user
+    form.reset();
+  });
+</script>
+
 </body>
 </html>
